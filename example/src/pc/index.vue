@@ -12,7 +12,7 @@ import docConfig from '../doc.config';
 export default {
   data() {
     return {
-      mobile: `mobile.html${location.hash}`
+      mobile: `mobile.html${location.hash}`,
     };
   },
 

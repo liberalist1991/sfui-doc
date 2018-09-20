@@ -5,6 +5,7 @@ import Header from './component/Header';
 import Container from './component/Container';
 import Mobile from './component/Mobile';
 import PrefixClass from './mixins/prefixClass';
+import SyncPath from './scripts/iframe-router';
 
 const components = [
   Nav,
@@ -29,5 +30,6 @@ export {
   Container,
   FooterNav,
   Mobile,
-  progress
+  progress,
+  SyncPath
 };

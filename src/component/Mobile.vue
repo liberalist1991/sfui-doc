@@ -1,7 +1,7 @@
 <template lang="pug">
   div.sfui-doc-mobile
     div.sfui-doc-mobile__nav
-      span 手机示例
+      span {{url}}
     iframe(ref="iframe" :src="src" frameborder="0")
 </template>
 
@@ -9,8 +9,20 @@
 export default {
   name: 'sfui-doc-mobile',
 
+  data() {
+      return {
+          url: this.src
+      }
+  },
+
   props: {
     src: String
+  },
+
+  watch: {
+    $route(to) {
+        this.url = this.src.replace(/\#.*$/, `#${to.path}`)
+    }
   }
 };
 </script>
@@ -33,6 +45,7 @@ export default {
   &__nav
     height 60px
     background #e5e5e5
+    border-radius 6px 6px 0 0
     text-align center
     line-height 60px
     font-size 16px

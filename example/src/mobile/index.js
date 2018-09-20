@@ -1,23 +1,17 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './index.vue';
-import FocusDoc from '../../../src/index.js';
 import routes from '../router';
-import '../scripts/iframe-router';
+import FocusDoc, { SyncPath } from '../../../src/index.js';
 
-Vue.use(VueRouter).use(FocusDoc);
+Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'hash',
   routes: routes(true)
 });
 
-router.afterEach(() => {
-  window.scrollTo(0, 0);
-  // Vue.nextTick(() => window.syncPath());
-});
-
-window.vueRouter = router;
+SyncPath(router);
 
 new Vue({
   render: h => h(App),

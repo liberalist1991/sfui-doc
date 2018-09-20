@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 function iframeReady(iframe, callback) {
   const doc = iframe.contentDocument || iframe.contentWindow.document;
   const interval = () => {
@@ -17,7 +19,16 @@ function iframeReady(iframe, callback) {
   }
 }
 
-window.syncPath = function (dir) {
+export default function(router) {
+  router.afterEach(() => {
+    window.scrollTo(0, 0);
+    Vue.nextTick(() => syncPath());
+  });
+
+  window.vueRouter = router;
+}
+
+function syncPath(dir) {
   const router = window.vueRouter;
   const isInIframe = window !== window.top;
   const currentDir = router.history.current.path;

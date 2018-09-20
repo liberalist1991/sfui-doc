@@ -4,11 +4,11 @@
     div(:class="p('container')")
         div(:class="p('left')")
             sfui-doc-nav(:config="config.nav")
-        div(:class="p('center')")
+        div(:class="[p('center'), {hasMobile: mobile}]")
             sfui-doc-container
                 slot
-        div(:class="p('right')")
-            sfui-doc-mobile(v-if="mobile" :src="mobile")
+        div(:class="p('right')" v-if="mobile")
+            sfui-doc-mobile(:src="mobile")
 </template>
 
 <script>
@@ -44,11 +44,14 @@ export default {
     overflow scroll
   &__center
     width auto
-    margin 0 420px 0 $w-nav
+    margin-left $w-nav
     height 100%
     box-sizing border-box
     overflow scroll
     -webkit-overflow-scrolling touch
+    &.hasMobile
+        margin-right 420px
+
   &__right
     position absolute
     top 0
