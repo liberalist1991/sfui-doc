@@ -30,6 +30,5 @@ export {
   Container,
   FooterNav,
   Mobile,
-  progress,
   SyncPath
 };
