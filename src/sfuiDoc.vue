@@ -8,7 +8,7 @@
             sfui-doc-container
                 slot
         div(:class="p('right')" v-if="mobile")
-            sfui-doc-mobile(:src="mobile")
+            sfui-doc-mobile(:src="mobile" :hasQrcode="hasQrcode")
 </template>
 
 <script>
@@ -20,7 +20,8 @@ export default {
       type: Object,
       required: true
     },
-    mobile: String
+    mobile: String,
+    hasQrcode: Boolean
   }
 };
 </script>

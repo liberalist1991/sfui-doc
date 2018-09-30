@@ -1,6 +1,6 @@
 {
   "name": "sfui-doc",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "focus document template",
   "main": "./dist/index.js",
   "scripts": {
@@ -16,6 +16,7 @@
   "author": "thinkzhan",
   "license": "MIT",
   "devDependencies": {
+    "@xkeshi/vue-qrcode": "^1.0.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",

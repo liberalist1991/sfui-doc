@@ -2,7 +2,8 @@
 div.app
 	sfui-doc(
 		:config="config"
-		:mobile="mobile")
+		:mobile="mobile"
+		:hasQrcode="true")
 		router-view
 </template>
 
