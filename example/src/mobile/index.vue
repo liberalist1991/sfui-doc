@@ -1,11 +1,17 @@
 <template lang="pug">
-  div.app
-      router-view
+  div
+      Nav
+      div.sfui-doc-container
+          router-view
 </template>
 
 <script>
-export default {
+import Nav from './Nav'
 
+export default {
+  components: {
+	Nav
+  }
 };
 </script>
 
@@ -13,5 +19,8 @@ export default {
 html,
 body {
     overflow: scroll!important;
+}
+.sfui-doc-container {
+    margin-top: 45px;
 }
 </style>

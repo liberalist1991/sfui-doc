@@ -1,9 +1,9 @@
 <template lang="pug">
-  div.sfui-doc-mobile
-    div.sfui-doc-mobile__nav
-        span.sfui-doc-mobile__nav--url {{url}}
-        Qrcode.sfui-doc-mobile__nav--qrcode(:value="qrcodePath" v-if="hasQrcode")
-    iframe(ref="iframe" :src="src" frameborder="0")
+div.sfui-doc-mobile
+	div.sfui-doc-mobile__nav
+		span.sfui-doc-mobile__nav--url {{url}}
+		Qrcode.sfui-doc-mobile__nav--qrcode(:value="qrcodePath" v-if="hasQrcode")
+	iframe(ref="iframe" :src="src" frameborder="0")
 </template>
 
 <script>
@@ -13,9 +13,9 @@ export default {
   name: 'sfui-doc-mobile',
 
   data() {
-      return {
-          url: this.src
-      }
+    return {
+      url: this.src
+    }
   },
 
   props: {
@@ -25,22 +25,22 @@ export default {
 
   watch: {
     $route(to) {
-        this.url = this.src.replace(/\#.*$/, `#${to.path}`);
+      this.url = this.src.replace(/\#.*$/, `#${to.path}`);
     }
   },
 
   computed: {
-      qrcodePath() {
-          if (/^http|^\/\//.test(this.url)) {
-             return this.url;
-          } else {
-             return  location.protocol + '//' + (location.host + location.pathname).replace(/\/$|\/[^\/]+$/, /^\//.test(this.url) ? this.url  : '/' + this.url );
-          }
+    qrcodePath() {
+      if (/^http|^\/\//.test(this.url)) {
+        return this.url;
+      } else {
+        return location.protocol + '//' + (location.host + location.pathname).replace(/\/$|\/[^\/]+$/, /^\//.test(this.url) ? this.url : '/' + this.url);
       }
+    }
   },
 
   components: {
-      Qrcode: VueQrcode
+    Qrcode: VueQrcode
   }
 };
 </script>
@@ -55,7 +55,7 @@ export default {
   border-radius 6px
   background #fafafa
   box-sizing border-box
-  box-shadow rgba(0, 0, 0, 0.2) 0px 1px 4px, rgba(0, 0, 0, 0.2) 0px 1px 2px
+  border 1px solid rgba(0, 0, 0, 0.08)
   iframe
     display block
     width 100%
